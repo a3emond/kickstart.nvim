@@ -15,6 +15,8 @@ return {
   },
   opts = {
     filesystem = {
+      follow_current_file = true, -- Focus the file in the active window when opening Neo-tree
+      use_libuv_file_watcher = true, -- Use libuv for file watching
       window = {
         mappings = {
           ['\\'] = 'close_window',
@@ -22,4 +24,12 @@ return {
       },
     },
   },
-}
+},
+  -- Automatically open Neo-tree when starting Neovim without any arguments
+  vim.api.nvim_create_autocmd('VimEnter', {
+    callback = function()
+      if vim.fn.argv(0) == '' then
+        vim.cmd 'Neotree show'
+      end
+    end,
+  })
