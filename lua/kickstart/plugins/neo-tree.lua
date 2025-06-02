@@ -15,6 +15,9 @@ return {
   },
   opts = {
     filesystem = {
+      filtered_items = {
+        hide_gitignored = false,
+      },
       follow_current_file = {
         enabled = true, -- Focus the file in the active window when opening Neo-tree
         leave_dirs_open = true, -- Leave directories open when focusing files
