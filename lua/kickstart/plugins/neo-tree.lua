@@ -15,8 +15,13 @@ return {
   },
   opts = {
     filesystem = {
-      follow_current_file = true, -- Focus the file in the active window when opening Neo-tree
-      use_libuv_file_watcher = true, -- Use libuv for file watching
+      follow_current_file = {
+        enabled = true, -- Focus the file in the active window when opening Neo-tree
+        leave_dirs_open = true, -- Leave directories open when focusing files
+      }, -- Focus the file in the active window when opening Neo-tree
+      use_libuv_file_watcher = {
+        enabled = true, -- Enable file watching using libuv
+      }, -- Use libuv for file watching
       window = {
         mappings = {
           ['\\'] = 'close_window',
